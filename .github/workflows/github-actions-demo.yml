@@ -14,7 +14,7 @@ jobs:
       - name : making the project and testing it
         uses: docker://debian:latest
       - shell: bash
-      - run: |
+        run: |
           apt update -y | apt install build-essential -y
           make
           # ./unit-test 
