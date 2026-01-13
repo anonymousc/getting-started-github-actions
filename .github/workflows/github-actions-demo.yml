@@ -3,10 +3,12 @@ run-name: ${{ github.actor }} for testing purpose
 on: [push]
 jobs:
   Explore-Github-Actions:
-    runs-on : docker://debian:latest
+    runs-on : ubuntu-latest
+    container:
+      image: docker://debian:latest
     steps:
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v6.0.0
+        # uses: actions/upload-artifact@v6.0.0
       - run: echo "this is a test have been made by ${{ github.actor }} and the event is ${{ github.event_name }} "
       - name: Check out repository code
         uses: actions/checkout@v5
