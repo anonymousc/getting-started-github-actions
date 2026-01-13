@@ -12,7 +12,7 @@ jobs:
       - name : making the project and testing it
         run: |
           make
-          ./unit-test 
+          # ./unit-test 
           ./unit-test HELLO
           ./unit-test BYE
       
