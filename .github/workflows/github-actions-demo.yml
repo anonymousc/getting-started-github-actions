@@ -1,17 +1,22 @@
 name: my first github action
 run-name: ${{ github.actor }} for testing purpose
-on: [pull_request]
+on: [push]
 jobs:
   Explore-Github-Actions:
-    uses: docker://debian:latest
+    runs-on: ubuntu-latest
+    container:
+      image: debian:latest
     steps:
+      - name: Upload a Build Artifact
+        run : apt update -y && apt install build-essential -y
+        # uses: actions/upload-artifact@v6.0.0
       - run: echo "this is a test have been made by ${{ github.actor }} and the event is ${{ github.event_name }} "
       - name: Check out repository code
         uses: actions/checkout@v5
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
-      - name : making the project and testing it
+      # for using pleased testing environ
+      - name : making the project and testing it 
         run: |
-          apt update -y && apt install build-essential
           make
           # ./unit-test 
           ./unit-test HELLO
