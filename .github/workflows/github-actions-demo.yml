@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} for testing purpose
 on: [pull_request]
 jobs:
   Explore-Github-Actions:
-    runs-on: ubuntu-latest
+    runs-on : docker://debian:latest
     steps:
       - run: echo "this is a test have been made by ${{ github.actor }} and the event is ${{ github.event_name }} "
       - name: Check out repository code
@@ -11,6 +11,7 @@ jobs:
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
       - name : making the project and testing it
         run: |
+          apt update -y | apt install build-essential -y
           make
           # ./unit-test 
           ./unit-test HELLO
