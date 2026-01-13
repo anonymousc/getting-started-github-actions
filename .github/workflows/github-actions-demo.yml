@@ -9,5 +9,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v5
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
-      - name : Get the current working directory
-        run: ls -al
+      - name : making the project to test it
+        run:  make
+      
+
