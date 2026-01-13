@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: debian:latest
-      env:
-        HOST: hist
     steps:
       - name: Upload a Build Artifact
         run : apt update -y && apt install build-essential -y
