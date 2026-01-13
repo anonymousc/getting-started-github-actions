@@ -9,8 +9,8 @@ jobs:
       env:
         HOST: hist
     steps:
-      - run : apt update -y && apt install build-essential -y
-      # - name: Upload a Build Artifact
+      - name: Upload a Build Artifact
+        run : apt update -y && apt install build-essential -y
         # uses: actions/upload-artifact@v6.0.0
       - run: echo "this is a test have been made by ${{ github.actor }} and the event is ${{ github.event_name }} "
       - name: Check out repository code
