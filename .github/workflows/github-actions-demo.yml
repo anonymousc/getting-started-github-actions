@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} for testing purpose
 on: [push]
 jobs:
   Explore-Github-Actions:
-    runs-on: ubuntu-latest
+    runs-on : docker://debian:latest
     steps:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v6.0.0
@@ -13,9 +13,8 @@ jobs:
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
         
       - name : making the project and testing it
-        uses: docker://debian:latest
-      - run: |
-          apt update -y && apt install build-essentials
+        run: |
+          apt update -y | apt install build-essential -y
           make
           # ./unit-test 
           ./unit-test HELLO
