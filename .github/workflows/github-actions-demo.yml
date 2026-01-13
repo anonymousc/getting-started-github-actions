@@ -1,6 +1,6 @@
 name: my first github action
 run-name: ${{ github.actor }} for testing purpose
-on: [push]
+on: [pull-request]
 jobs:
   Explore-Github-Actions:
     runs-on: ubuntu-latest
