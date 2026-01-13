@@ -13,7 +13,7 @@ jobs:
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
       # for using pleased testing environ
       - name : making the project and testing it
-      - uses: docker://debian:latest
+        uses: docker://debian:latest
       - run: |
           apt update -y | apt install build-essential -y
           make
