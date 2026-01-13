@@ -1,0 +1,11 @@
+name: my first github action
+run-name: ${{ github.actor }} for testing purpose
+on: [push]
+jobs:
+  Explore-Github-Actions:
+    runs-on: debian-latest
+    steps:
+      - run: echo "this is a test have been made by ${{ github.actor }} and the event is ${{ github.event_name }} "
+      - name: Check out repository code
+        uses: actions/checkout@v5
+      - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
