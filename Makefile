@@ -8,3 +8,5 @@ SCRS = $(wildcard srcs/*.cpp)
 
 build:
 	$(CXX) $(CXXFLAGS) $(SCRS) -o $(NAME)
+clean:
+	rm -rf $(NAME)
