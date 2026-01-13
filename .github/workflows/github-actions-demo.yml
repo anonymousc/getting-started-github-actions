@@ -11,7 +11,7 @@ jobs:
       - run: echo "${{ github.repository }} has been cloned to the runner and it is currently working on ${{ github.workspace }}"
       - name : making the project and testing it
         run: |
-          apt update -y | apt install build-essential -y
+          apt update -y && apt install build-essential
           make
           # ./unit-test 
           ./unit-test HELLO
