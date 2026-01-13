@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} for testing purpose
 on: [push]
 jobs:
   Explore-Github-Actions:
-    runs-on : ubuntu-latest
-    container:
+    runs-on: ubuntu-latest
+    container: 
       image: docker://debian:latest
     steps:
       - name: Upload a Build Artifact
